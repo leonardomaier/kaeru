@@ -1,4 +1,4 @@
-# leonardomaier/kaeru [Work in Progress]
+# leonardomaier/kaeru
 
 The Kaeru Command Line Interface (CLI)
 
@@ -8,8 +8,8 @@ The Kaeru Command Line Interface (CLI)
 Kaeru CLI [Node: > 12.22.1]
 
 Commands:
-  npm start -- new newconfig.yaml Creates configuration file
-  npm start -- run-command <command> --config <config> -vars <vars> Runs command defined in YAML file
+  kaeru new newconfig.yaml Creates configuration file
+  kaeru run-command <command> --config <config>
 ``` 
 
 ## Contributing
