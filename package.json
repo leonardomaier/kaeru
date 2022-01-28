@@ -1,0 +1,29 @@
+{
+  "name": "alter-ego",
+  "version": "0.0.1",
+  "description": "Automatically generates files based on a YAML structure",
+  "main": "bin/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "commander": "^8.3.0",
+    "js-yaml": "^4.1.0",
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.4",
+    "@types/node": "^16.11.6",
+    "eslint": "^8.1.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node bin/cli.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "alter-ego": "bin/cli.js"
+  },
+  "author": "leonardomaier",
+  "license": "ISC"
+}

@@ -1,0 +1,29 @@
+projectPath: ""
+variables:
+  name: ""
+commands:
+  myFirstCommand:
+    path: ""
+    folder: ""
+    files:
+      - name: ""
+        extension: ""
+        template:
+          path: ""
+          variables:
+            name: ""
+            capitalLetterName: ""
+      - name: ""
+        extension: ".ts"
+      - name: ""
+        extension: ".scss"
+      - name: "$"
+        extension: ".html"
+  mySecondCommand:
+    path: ""
+    folder: ""
+    files:
+      - name: ""
+        extension: "service.ts"
+      - name: ""
+        extension: "service.spec.ts"

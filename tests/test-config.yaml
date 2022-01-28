@@ -1,0 +1,29 @@
+projectPath: "./tests/test-folder"
+globalVariables:
+  name: "Test"
+commands:
+  createComponent:
+    path: "/src/components/"
+    folder: "${folderName}-component-service-folder"
+    files:
+      - name: "${name}"
+        extension: "component.ts"
+        template:
+          path: "./src/assets/template.alter"
+          variables:
+            name: "generated"
+            capitalLetterName: "Generated"
+      - name: "${name}"
+        extension: "component.spec.ts"
+      - name: "${name}"
+        extension: "component.scss.ts"
+      - name: "${name}"
+        extension: "component.html.ts"
+  createService:
+    path: "/src/services/"
+    folder: "${name}-service-folder"
+    files:
+      - name: "${name}"
+        extension: "service.ts"
+      - name: "${name}"
+        extension: "service.spec.ts"
