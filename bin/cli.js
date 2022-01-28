@@ -13,12 +13,12 @@ program
   .argument('<command>', 'name of the command defined in the YAML')
   .requiredOption('-c, --config <config>', 'YAML file to be read')
   .option('-v, --vars <vars>', 'Variables to be used on command, json-only', '')
-  .action((name, options) => { RunCommand.handler({ ...options, name }) });
+  .action((name, options) => { RunCommand.handler({ ...options, name }); });
 
 program
   .command('new')
   .description('creates new configuration file')
   .argument('<config-name>', 'name of the configuration file to be created')
-  .action((name) => { InitConfig.handler(name) })
+  .action((name) => { InitConfig.handler(name); });
 
 program.parse(process.argv);

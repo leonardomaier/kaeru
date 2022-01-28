@@ -1,10 +1,10 @@
-const { existsSync, mkdirSync, readFileSync, writeFileSync } = require("fs");
+const {
+  existsSync, mkdirSync, readFileSync, writeFileSync,
+} = require('fs');
 const { load } = require('js-yaml');
 
 class RunCommand {
-
   static handler(options) {
-
     if (!existsSync(options.config)) {
       throw Error('YAML file not found');
     }
@@ -18,7 +18,9 @@ class RunCommand {
 
     const configuration = load(configurationFile);
 
-    const command = options.name in configuration.commands ? configuration.commands[options.name] : null;
+    const { commands } = configuration;
+
+    const command = options.name in commands ? commands[options.name] : null;
 
     if (!command) {
       console.log('command not found');
@@ -28,25 +30,23 @@ class RunCommand {
     let folderPath = `${configuration.projectPath}${command.path}`;
 
     const replaceVariables = (content, variables) => {
-
       let newContent = content;
 
-      Object.keys(variables).forEach(variableName => {
+      Object.keys(variables).forEach((variableName) => {
         const variableValue = variables[variableName];
-        const regex = new RegExp('\\$\\{' + variableName + '\\}', 'g');
+        const regex = new RegExp(`\\$\\{${variableName}\\}`, 'g');
         newContent = newContent.replace(regex, variableValue);
       });
 
       return newContent;
-    }
+    };
 
     if (command.folder) {
       folderPath += replaceVariables(command.folder, configuration.globalVariables);
     }
 
     if (!existsSync(folderPath)) {
-
-      const recursive = folderPath.split("/").length > 0;
+      const recursive = folderPath.split('/').length > 0;
 
       mkdirSync(folderPath, { recursive });
     }
@@ -56,28 +56,26 @@ class RunCommand {
       return;
     }
 
-    for (let i = 0; i < command.files.length; i++) {
-
+    for (let i = 0; i < command.files.length; i += 1) {
       const { name, extension, template } = command.files[i];
 
       if (!template) {
         writeFileSync(`${folderPath}/${replaceVariables(name, configuration.globalVariables)}.${extension}`, '');
-        continue;
+      } else {
+        let templateContent = readFileSync(template.path).toString();
+
+        if (!template.variables || template.variables.length <= 0) {
+          return;
+        }
+
+        templateContent = replaceVariables(templateContent, configuration.globalVariables);
+
+        writeFileSync(`${folderPath}/${replaceVariables(name, configuration.globalVariables)}.${extension}`, templateContent);
       }
-
-      let templateContent = readFileSync(template.path).toString();
-
-      if (!template.variables || template.variables.length <= 0) {
-        return;
-      }
-
-      templateContent = replaceVariables(templateContent, configuration.globalVariables);
-
-      writeFileSync(`${folderPath}/${replaceVariables(name, configuration.globalVariables)}.${extension}`, templateContent);
     }
   }
 }
 
 module.exports = {
-  RunCommand
+  RunCommand,
 };

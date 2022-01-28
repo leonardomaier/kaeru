@@ -14,7 +14,8 @@
   "devDependencies": {
     "@types/js-yaml": "^4.0.4",
     "@types/node": "^16.11.6",
-    "eslint": "^8.1.0"
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4"
   },
   "scripts": {
     "lint": "eslint .",
