@@ -1,11 +1,11 @@
-# leonardomaier/alter-ego [Work in Progress]
+# leonardomaier/kaeru [Work in Progress]
 
-The Alter Ego Command Line Interface (CLI)
+The Kaeru Command Line Interface (CLI)
 
 ### Usage
 
 ```bash
-Alter Ego CLI [Node: > 12.22.1]
+Kaeru CLI [Node: > 12.22.1]
 
 Commands:
   npm start -- new newconfig.yaml Creates configuration file
