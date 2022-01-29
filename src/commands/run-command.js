@@ -2,6 +2,7 @@ const {
   existsSync, mkdirSync, readFileSync, writeFileSync,
 } = require('fs');
 const { load } = require('js-yaml');
+const { convertVariablesFromCliCommand } = require('../shared/functions');
 
 class RunCommand {
   static handler(options) {
@@ -41,8 +42,12 @@ class RunCommand {
       return newContent;
     };
 
+    const optionVars = convertVariablesFromCliCommand(options.vars);
+
+    const globalVariables = optionVars || configuration.globalVariables || {};
+
     if (command.folder) {
-      folderPath += replaceVariables(command.folder, configuration.globalVariables);
+      folderPath += replaceVariables(command.folder, globalVariables);
     }
 
     if (!existsSync(folderPath)) {
@@ -60,17 +65,17 @@ class RunCommand {
       const { name, extension, template } = command.files[i];
 
       if (!template) {
-        writeFileSync(`${folderPath}/${replaceVariables(name, configuration.globalVariables)}.${extension}`, '');
+        writeFileSync(`${folderPath}/${replaceVariables(name, globalVariables)}.${extension}`, '');
       } else {
         let templateContent = readFileSync(template.path).toString();
 
-        if (!template.variables || template.variables.length <= 0) {
-          return;
-        }
+        const templateVariables = template.variables || {};
 
-        templateContent = replaceVariables(templateContent, configuration.globalVariables);
+        const allVariables = { ...globalVariables, ...templateVariables };
 
-        writeFileSync(`${folderPath}/${replaceVariables(name, configuration.globalVariables)}.${extension}`, templateContent);
+        templateContent = replaceVariables(templateContent, allVariables);
+
+        writeFileSync(`${folderPath}/${replaceVariables(name, globalVariables)}.${extension}`, templateContent);
       }
     }
   }
