@@ -1,11 +1,14 @@
 const { existsSync, readFileSync, writeFileSync } = require('fs');
+const path = require('path');
+
+const EXTENSION = '.yaml';
 
 class InitConfig {
-  static handler(configName, templatePath = null) {
-    if (!existsSync(`./${configName}`)) {
-      const templateFilePath = templatePath || `${process.cwd()}/src/assets/template.yaml`;
-      const templateContent = readFileSync(templateFilePath).toString();
-      writeFileSync(`./${configName}.yaml`, templateContent);
+  static handler(configName) {
+    if (!existsSync(`./${configName}${EXTENSION}`)) {
+      const templatePath = path.resolve(__dirname, '../assets/template.yaml');
+      const templateContent = readFileSync(templatePath).toString();
+      writeFileSync(`./${configName}${EXTENSION}`, templateContent);
     }
   }
 }

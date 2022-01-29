@@ -1,23 +1,24 @@
-const isJson = (jsonData) => {
-  let json = jsonData;
+const convertVariablesFromCliCommand = (variables) => {
+  const result = {};
 
-  json = typeof jsonData !== 'string'
-    ? JSON.stringify(jsonData)
-    : jsonData;
-
-  try {
-    json = JSON.parse(jsonData);
-  } catch (e) {
-    return false;
+  if (!variables) {
+    return null;
   }
 
-  if (typeof json === 'object' && jsonData !== null) {
-    return true;
+  const splittedVariables = variables.split(',');
+
+  if (!splittedVariables || splittedVariables.length <= 0) {
+    return null;
   }
 
-  return false;
+  splittedVariables.forEach((variable) => {
+    const [key, value] = variable.split('=');
+    result[key] = value;
+  });
+
+  return result;
 };
 
 module.exports = {
-  isJson,
+  convertVariablesFromCliCommand,
 };

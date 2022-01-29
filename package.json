@@ -5,7 +5,7 @@
       "./tests"
     ]
   },
-  "version": "0.0.2",
+  "version": "0.1.2",
   "description": "Automatically generates files based on a YAML structure",
   "main": "bin/index.js",
   "directories": {
