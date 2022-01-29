@@ -1,5 +1,10 @@
 {
   "name": "kaeru",
+  "jest": {
+    "testPathIgnorePatterns": [
+      "./tests"
+    ]
+  },
   "version": "0.0.2",
   "description": "Automatically generates files based on a YAML structure",
   "main": "bin/index.js",
@@ -9,18 +14,20 @@
   "dependencies": {
     "commander": "^8.3.0",
     "js-yaml": "^4.1.0",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.8.5",
+    "sinon": "^13.0.0"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.4",
     "@types/node": "^16.11.6",
     "eslint": "^8.2.0",
-    "eslint-config-airbnb": "^19.0.4"
+    "eslint-config-airbnb": "^19.0.4",
+    "jest": "^27.4.7"
   },
   "scripts": {
     "lint": "eslint .",
     "start": "node bin/kaeru.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "bin": {
     "kaeru": "bin/kaeru.js"
