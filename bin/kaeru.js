@@ -3,9 +3,11 @@ const { Command } = require('commander');
 const { InitConfig } = require('../src/commands/init-config');
 const { RunCommand } = require('../src/commands/run-command');
 
+const { version } = require('../package.json');
+
 const program = new Command();
 
-program.version('0.0.1');
+program.version(version);
 
 program
   .command('run-command')
