@@ -2,6 +2,8 @@
 
 The [Kaeru](https://www.npmjs.com/package/kaeru) Command Line Interface (CLI)
 
+See the project in [GitHub](https://github.com/leonardomaier/kaeru)
+
 ## Table of Contents
 
 - [Installation](#installation)
