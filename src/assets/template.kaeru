@@ -1,0 +1,2 @@
+// Here you can use the globalVariables, template variables or variables defined in "--vars" CLI option 
+export class ${name} {}
