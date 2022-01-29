@@ -1,5 +1,5 @@
 projectPath: ""
-variables:
+globalVariables:
   name: ""
 commands:
   myFirstCommand:
@@ -7,23 +7,8 @@ commands:
     folder: ""
     files:
       - name: ""
-        extension: ""
-        template:
-          path: ""
-          variables:
-            name: ""
-            capitalLetterName: ""
-      - name: ""
         extension: ".ts"
       - name: ""
         extension: ".scss"
-      - name: "$"
+      - name: ""
         extension: ".html"
-  mySecondCommand:
-    path: ""
-    folder: ""
-    files:
-      - name: ""
-        extension: "service.ts"
-      - name: ""
-        extension: "service.spec.ts"
