@@ -7,8 +7,8 @@ commands:
     folder: ""
     files:
       - name: ""
-        extension: ".ts"
+        extension: "ts"
       - name: ""
-        extension: ".scss"
+        extension: "scss"
       - name: ""
-        extension: ".html"
+        extension: "html"
