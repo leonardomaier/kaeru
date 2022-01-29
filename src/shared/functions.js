@@ -1,10 +1,14 @@
 const convertVariablesFromCliCommand = (variables) => {
   const result = {};
 
+  if (!variables) {
+    return null;
+  }
+
   const splittedVariables = variables.split(',');
 
   if (!splittedVariables || splittedVariables.length <= 0) {
-    return {};
+    return null;
   }
 
   splittedVariables.forEach((variable) => {
