@@ -1,6 +1,6 @@
 {
   "name": "kaeru",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Automatically generates files based on a YAML structure",
   "main": "bin/index.js",
   "directories": {
