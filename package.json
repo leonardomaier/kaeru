@@ -25,6 +25,13 @@
   "bin": {
     "kaeru": "bin/kaeru.js"
   },
+  "keywords": [
+    "cli",
+    "nodejs",
+    "javascript",
+    "yaml",
+    "files"
+  ],
   "author": "leonardomaier",
   "license": "ISC"
 }
