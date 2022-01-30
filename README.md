@@ -1,6 +1,6 @@
 # leonardomaier/kaeru [Work in progress]
 
-The [Kaeru](https://www.npmjs.com/package/kaeru) Command Line Interface (CLI)
+The [Kaeru](https://www.npmjs.com/package/kaeru) Command Line Interface (CLI) is used for generating files based on a YAML structure.
 
 See the project in [GitHub](https://github.com/leonardomaier/kaeru)
 
