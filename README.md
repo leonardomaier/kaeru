@@ -1,6 +1,6 @@
 # leonardomaier/kaeru [Work in progress]
 
-The [Kaeru](https://www.npmjs.com/package/kaeru) Command Line Interface (CLI) is used for generating files based on a YAML structure.
+The [Kaeru](https://www.npmjs.com/package/kaeru) Command Line Interface (CLI)
 
 See the project in [GitHub](https://github.com/leonardomaier/kaeru)
 
@@ -58,7 +58,7 @@ We could have used Angular CLI for creating those files but there are cases that
 First of all, we can start creating a new configuration file running:
 
 ```bash
-kaeru new config.yaml
+kaeru new configname
 ```
 
 This command will create a YAML file with all the options we can use for creating a customizable command.
@@ -81,11 +81,11 @@ commands:
     folder: ""
     files:
       - name: ""
-        extension: ".ts"
+        extension: "ts"
       - name: ""
-        extension: ".scss"
+        extension: "scss"
       - name: ""
-        extension: ".html"
+        extension: "html"
 ```
 
 We can customize our file to be something like this:
@@ -100,17 +100,17 @@ commands:
     folder: "test"
     files:
       - name: "${name}Component"
-        extension: ".ts"
+        extension: "ts"
       - name: "${name}Component"
-        extension: ".scss"
+        extension: "scss"
       - name: "${name}Component"
-        extension: ".html"
+        extension: "html"
 ```
 
 Then run:
 
 ```bash
-kaeru run-command myFirstCommand --config .\config.yaml
+kaeru run-command myFirstCommand --config config.yaml
 ```
 
 ### Templates
@@ -204,7 +204,7 @@ commands:
 - Using --vars option
 
 ```bash
-kaeru run-command myCommand --config .\config.yaml --vars "name=testName,anotherName=testAnotherName"
+kaeru run-command myCommand --config config.yaml --vars "name=testName,anotherName=testAnotherName"
 ```
 
 OBS: The order of precedence is --vars and then globalVariables
